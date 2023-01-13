@@ -1,0 +1,41 @@
+{
+  "name": "Obanana",
+  "icons": [
+    {
+      "src": "ob192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ob.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "ob192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "ob256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "ob384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "ob512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "short_name": "Obanana",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
