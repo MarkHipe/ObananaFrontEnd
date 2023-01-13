@@ -326,6 +326,12 @@ const Con = styled.div`
         }
       }
     }
+    @media (max-width: 1024px) {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      left: 0;
+    }
   }
   & .nav {
     display: none;
