@@ -47,7 +47,7 @@ const Con = styled.div`
     grid-template-areas:
       " banner banner"
       "left right";
-    height: 1180px;
+    height: 1280px;
   }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -55,7 +55,15 @@ const Con = styled.div`
     grid-template-areas:
       " banner "
       "left " "right";
-    height: 2350px;
+    height: 2580px;
+  }
+  @media (max-width: 468px) {
+    height: 2550px;
+
+  }
+  @media (max-width: 368px) {
+    height: 2400px;
+
   }
 
   & .bannerCon {
@@ -72,6 +80,10 @@ const Con = styled.div`
       height: 582px;
       flex-direction: column;
       //  margin: 0;
+      @media (min-width: 1800px) {
+        width: 800px;
+        margin: 0;
+      }
       @media (max-width: 1480px) {
         width: 38vw;
       }
@@ -198,6 +210,7 @@ const Con = styled.div`
   & .right {
     height: 600px;
     grid-area: right;
+  
   }
   & .left {
     height: 600px;

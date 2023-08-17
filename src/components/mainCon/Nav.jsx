@@ -19,19 +19,19 @@ const navs = [
   },
   {
     name: "Sell On Obanana",
-    link: "/sell-on-obanana/",
+    link: "/sell-on-obanana",
   },
   {
     name: "Feedback",
-    link: "/testimonials/",
+    link: "/testimonials",
   },
   {
     name: "FAQs",
-    link: "/faq/",
+    link: "/faq",
   },
   {
     name: "My Account",
-    link: "/my-account/",
+    link: "/my-account",
   },
 ];
 const categories = [
@@ -137,17 +137,14 @@ const categories = [
 ];
 
 const Nav = () => {
-  const [activeTab, setactiveTab] = useState("home")
+  const [activeTab, setactiveTab] = useState("home");
   const [active, setActive] = useState("/");
   const [activeCategory, setActiveCategory] = useState(false);
   const [activeSubCategory, setActiveSubCategory] = useState("");
   return (
     <Con>
       {" "}
-      <motion.div
-        className="navCon"
-       
-      >
+      <motion.div className="navCon">
         <div className="left">
           <div className="catCon">
             <div
@@ -240,7 +237,8 @@ const Nav = () => {
           </div>
           <div className="navLinks">
             {navs.map((link, index) => (
-              <Link to={link.link}
+              <Link
+                to={link.link}
                 key={index}
                 className={active === link.link ? "navLink active" : "navLink"}
                 onClick={() => {
@@ -309,13 +307,17 @@ const Con = styled.div`
             display: flex;
             flex-direction: column;
             box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            border-radius:2px;
             background-color: var(--obanana-site-bg-color);
             color: var(--obanana-dark-color);
+           // padding: 1rem;
+           padding-bottom: 1rem;
+
             & .nestWrap {
               display: inline-flex;
               & .nestLinks {
                 border-radius: 4px;
+                padding: 0 1rem;
                 & span {
                   display: inline-flex;
                   margin: 0.6rem 1rem;
@@ -342,10 +344,10 @@ const Con = styled.div`
                 }
               }
               & .linksWrap {
-                border-radius: 5px;
+                border-radius: 2px;
                 position: absolute;
                 //  width: 300px;
-                left: 240px;
+                left: 280px;
                 box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
 
                 background-color: var(--obanana-site-bg-color);
@@ -353,6 +355,7 @@ const Con = styled.div`
                 visibility: hidden;
                 opacity: 0.8;
                 transition: opacity 0.3s ease-in-out;
+                padding: 1rem;
                 &.active {
                   visibility: visible;
                   opacity: 1;
@@ -393,23 +396,52 @@ const Con = styled.div`
         display: inline-flex;
         margin: auto 1rem;
         margin-left: 5rem;
-        & a{
+        & a {
           color: var(--obanana-dark-color);
           text-decoration: none;
+        // margin-bottom: 3px;
         }
         & .navLink {
           margin: auto 1rem;
           text-transform: capitalize;
           cursor: pointer;
+          border-bottom: 3px solid transparent;
+          &::after {
+            content: "";
+            position: relative;
+            display: block;
+            width: 0;
+            top: 3px;
+            height: 3px;
+            background: #ec7a5c;
+            transition: width .7s;
+          }
+
+          &:hover::after {
+            width: 100%;
+            //transition: width .3s;
+          }
+          @keyframes sec {
+            from {
+              
+              width: 0;
+            }
+
+            to {
+              width: 100%;
+
+            }
+          
+          }
+
           &.active {
             color: #ec7a5c;
             border-bottom: 3px solid;
           }
           &:hover {
             position: relative;
-            top: -2px;
+            // top: -2px;
             color: #ec7a5c;
-            border-bottom: 3px solid;
           }
         }
       }
@@ -471,7 +503,7 @@ const Con = styled.div`
       input {
         width: 100%;
         padding: 10px;
-    
+
         font-size: 1.2rem;
         display: block;
         font-family: monospace;

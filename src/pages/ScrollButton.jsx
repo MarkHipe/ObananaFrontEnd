@@ -76,6 +76,7 @@ const ScrollButton = () =>{
  const ScrollIndicator = styled.div`
    position: fixed;
    width: 100%;
+   max-width: 1800px;
    left: 85%;
    bottom: 140px;
    height: 20px;

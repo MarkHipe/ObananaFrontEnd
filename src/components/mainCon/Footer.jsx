@@ -49,7 +49,6 @@ const logistics = [
   {
     imgLink: "https://obanana.com/wp-content/uploads/2021/06/logistics-1.png",
   },
- 
 ];
 
 const shortcutLinks = [
@@ -196,7 +195,7 @@ const Footer = () => {
           })}
         </div>
         <div className="last">
-          <hr/>
+          <hr />
           <div className="end">
             <h5>
               Copyright © 2021{" "}
@@ -222,6 +221,9 @@ const Con = styled.div`
   color: var(--obanana-secondary-color);
   margin: 0px;
   padding: 0px;
+  padding-bottom: 6rem;
+  @media (max-width: 768px) {
+  }
   & hr {
     // width: 90%;
     margin: auto 1rem;
@@ -376,7 +378,6 @@ const Con = styled.div`
 
     margin: auto 0;
     & .shortcuts {
-     
       & .wrap {
         display: flex;
         flex-wrap: wrap;
@@ -407,6 +408,7 @@ const Con = styled.div`
       margin: auto 2rem;
       margin-right: 0rem;
       justify-content: space-between;
+      max-width: 1700px;
       & h5 {
         color: var(--obanana-secondary-color);
         font-weight: 300;

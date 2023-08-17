@@ -60,8 +60,13 @@ const Left = () => {
 const Con = styled.div`
   width: 28vw;
   height: 680px;
+  padding-left: 1rem;
   //padding: auto 16px;
-  margin: 0;
+
+  @media (min-width: 1800px) {
+        width: 500px;
+        margin: 0;
+      }
   @media (max-width: 1480px) {
     width: 28vw;
   }
@@ -72,7 +77,7 @@ const Con = styled.div`
     width: 48vw;
   }
   @media (max-width: 768px) {
-    width: 95vw;
+    width: 100vw;
   }
   & .header {
     display: inline-flex;
@@ -90,9 +95,10 @@ const Con = styled.div`
     }
   }
   & .contents {
+    margin: auto;
     & .mySwiper {
       height: 550px;
-      width: 90%;
+      width: 100%;
       margin-top: 0rem;
       position: relative;
       z-index: 19;
@@ -100,33 +106,54 @@ const Con = styled.div`
         height: 910px;
         margin-top: -3rem;
       }
+      @media (max-width: 468px) {
+        margin-top: 1rem;
+        height: 900px;
+      }
+      @media (max-width: 398px) {
+        margin-top: 1rem;
+        height: 850px;
+      }
+     
+      /* @media (max-width:468px){
+      height: 750px;
+    } */
       & .perSlide {
         height: calc((100% - 160px) / 3) !important;
-        //  width: 90%;
+          width: 95vw;
         /* Center slide text vertically */
         display: -webkit-box;
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: space-between;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
+       justify-content: space-between;
         align-items: center;
         margin: 10px 0;
         & .prodCard {
           display: inline-flex;
           height: 120px;
+          width: 90vw;
           margin: 1rem;
+          @media (max-width: 468px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           & img {
             height: 159.13px;
             width: 159.13px;
             @media (max-width: 768px) {
               height: 271.13px;
               width: 271.13px;
+            }
+            @media (max-width: 568px) {
+              height: 40vw;
+              width: 40vw;
+            }
+            @media (max-width:468px) {
+              height: 50vw;
+              width: 50vw;
             }
           }
           & p {
@@ -152,6 +179,15 @@ const Con = styled.div`
               & .map {
                 margin: auto;
                 margin-top:65%;
+              }
+            }
+            @media (max-width: 568px) {
+              & p {
+                margin-top: 10px;
+              }
+              & .map {
+                margin: auto;
+                margin-top: 0px;
               }
             }
           }

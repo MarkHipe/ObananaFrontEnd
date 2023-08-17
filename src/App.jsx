@@ -2,13 +2,21 @@ import "./App.css";
 
 import styled from "styled-components";
 import MainCon from "./MainCon";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
   return (
     <Con>
       <Router>
-        <MainCon />
+        <div className="overlayShadow">
+          <MainCon />
+        </div>
       </Router>
       <style jsx>{`
         @import url("https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap");
@@ -30,19 +38,23 @@ function App() {
         #root {
           margin: 0;
           padding: 0;
-          display: block;
+          display: flex;
           top: 0;
-          left: 0;
+          /* left: 0; */
           padding-top: 0;
           box-sizing: border-box;
           overflow-x: hidden;
           justify-content: center;
+          align-items: center;
+          align-self: center;
+        }
+        html {
         }
         body {
           top: 0;
-          left: 0;
+          /* left: 0; */
           padding-top: 0;
-          margin: 0;
+          margin: auto;
           padding: 0;
           font-family: "Poppins", sans-serif;
           -webkit-font-smoothing: antialiased;

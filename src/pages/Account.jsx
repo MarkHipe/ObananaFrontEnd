@@ -60,6 +60,8 @@ const Con = styled.div`
     height: 600px;
     place-items: center;
     background: #f2f2f2;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    
 
     & .wrapper{
         max-width: 390px;

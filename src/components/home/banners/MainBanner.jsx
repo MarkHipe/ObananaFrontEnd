@@ -32,7 +32,7 @@ const MainBanner = () => {
             <SwiperSlide className='perSlide' key={i}>
               <img
                 className="img"
-                style={{ height: "auto", width: "100vw" ,position:"relative",zIndex:5}}
+                style={{ height: "auto", width: "100%" ,position:"relative",zIndex:5}}
                 src={img.images}
                 alt=""
               />

@@ -64,8 +64,10 @@ const MainNav = ({ setNav, setInView }) => {
                 </Link>
               </span>
               <span>
+              <Link to ="/compare" className='link'>
                 <FaRegHeart className="icon" />
                 <p>Wishlist</p>
+                </Link>
               </span>
             </div>
             <div className="cart">
@@ -85,6 +87,7 @@ const MainNav = ({ setNav, setInView }) => {
       // justify-content: space-around;
       padding: 22px 0px 10px 0px;
       width: 100vw;
+      max-width: 1800px;
       overflow-x: hidden;
       // justify-content: space-between;
       & .conWrap {
@@ -220,6 +223,7 @@ const MainNav = ({ setNav, setInView }) => {
                 font-weight: 800;
                 position: relative;
                 top: -18px;
+                white-space: nowrap;
               }
             }
           }

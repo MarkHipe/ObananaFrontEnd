@@ -114,6 +114,7 @@ const SellOnObanana = () => {
 const Con = styled.div`
   position: relative;
   z-index: 10;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   
   & .header {
     margin: auto;

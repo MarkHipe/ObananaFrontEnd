@@ -172,9 +172,10 @@ const Con = styled.div`
       -webkit-box-orient: vertical;
       overflow: hidden;
       padding: 1rem 1rem;
+
       text-align: center;
       font-size: 0.8rem;
-      line-height: 1;
+      line-height: 1.4;
       white-space: wrap;
       text-overflow: ellipsis;
     }

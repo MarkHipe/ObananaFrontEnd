@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useNavigate, useParams } from "react-router-dom";
 
 const navs = [
   "Groceries & Merchandise",
@@ -20,6 +21,7 @@ const navs = [
 
 const TopCategories = () => {
   const [prodHover, setprodHover] = useState();
+  const navigate = useNavigate();
   return (
     <Con>
       {" "}
@@ -108,6 +110,7 @@ const TopCategories = () => {
                       onMouseLeave={() => {
                         setprodHover();
                       }}
+                      onClick={()=>{navigate(`/product/${prod.productName}`)}}
                     >
                       <FiSearch
                         className={prodHover === i ? "search active" : "search"}
@@ -148,7 +151,7 @@ const TopCategories = () => {
 const Con = styled.div`
   // padding: 1rem 1rem;
   height: auto;
-  width: 90vw;
+  width: 95%;
   // position: relative;
   margin: auto;
   display: flex;
@@ -167,21 +170,24 @@ const Con = styled.div`
   }
   & .prodWrap {
     display: flex;
-    width: 95vw;
+    width: 100%;
     margin: auto;
     justify-content: space-between;
     //  padding: 1rem;
     @media (max-width: 768px) {
       flex-direction: column;
-      width: 100vw;
+      width: 95vw;
     }
     // width: 100%;
     & .categoryLists {
-      width: 30vw;
-      max-width: 320px;
+      width: 500px !important;
+      //max-width: 320px;
       padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @media (max-width: 768px) {
-        width: 100vw;
+        width: 95vw !important;
         margin: auto 0;
         max-width: none;
       }
@@ -200,7 +206,7 @@ const Con = styled.div`
           max-width: none;
         }
         @media (max-width: 768px) {
-          width: 90%;
+          width: 100vw !important;
           padding: 2rem 1rem;
           margin: 1rem 5px;
         }
@@ -242,8 +248,12 @@ const Con = styled.div`
       height: auto;
       margin: 0 0rem;
       //margin-left: 3rem;
+      @media (min-width: 1800px) {
+        width: 1400px;
+        margin: 0;
+      }
       @media (max-width: 768px) {
-        width: 100vw;
+        width: 95vw;
         margin: 0;
       }
       & .contentsCon {
@@ -252,6 +262,13 @@ const Con = styled.div`
         margin: 0;
         @media (max-width: 768px) {
           height: 650px;
+          width: 95vw;
+        }
+        @media (max-width: 470px) {
+          height: 500px;
+        }
+        @media (max-width: 350px) {
+          height: 400px;
         }
         & .mySwiper {
           height: 100%;
@@ -262,15 +279,23 @@ const Con = styled.div`
           z-index: 19;
           justify-content: center;
           align-items: center;
-        
+          @media (min-width: 1800px) {
+            width: 1400px;
+            margin: 0;
+          }
           @media (max-width: 768px) {
-            width: 90vw;
+            width: 95vw;
+            margin: 0;
           }
           & .swiper-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 75vw !important;
+            @media (max-width: 768px) {
+              width: 95vw !important;
+              margin: 0;
+            }
           }
           & .perSlide {
             height: calc((100% - 40px) / 2) !important;
@@ -293,10 +318,16 @@ const Con = styled.div`
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           margin: auto;
-        
+
           @media (max-width: 992px) {
-            width: 100%;
+            width: 95vw;
+          }
+          @media (max-width: 768px) {
+            width: 40vw;
+            height: auto;
+            object-fit: cover;
           }
           & img {
             cursor: pointer;
@@ -305,9 +336,10 @@ const Con = styled.div`
             margin: auto;
             position: relative;
             z-index: 20;
+            object-fit: cover;
             @media (max-width: 768px) {
-              width: 200px;
-              height: auto;
+              width: 40vw;
+             // height: auto;
               object-fit: cover;
             }
           }
@@ -332,7 +364,11 @@ const Con = styled.div`
 
             position: relative;
             z-index: 23;
-
+            @media (max-width: 768px) {
+              width: 40vw;
+              height: auto;
+              object-fit: cover;
+            }
             &.active {
               position: relative;
               animation: slide-up 0.5s ease-in-out both;

@@ -136,7 +136,7 @@ const Con = styled.div`
   //padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   height: auto;
   & .header {
@@ -166,6 +166,7 @@ const Con = styled.div`
     display: flex;
     justify-content: space-between;
     width: 95vw;
+    max-width: 1800px;
     @media screen and (max-width: 768px) {
       flex-direction: column;
     }
@@ -183,11 +184,16 @@ const Con = styled.div`
       width: 70vw;
       height: auto;
       margin: 0 0rem;
-      //margin-left: 3rem;
-      @media (max-width: 768px) {
-        width: 100vw;
+      @media (min-width: 1800px) {
+        width: 1400px;
         margin: 0;
       }
+      //margin-left: 3rem;
+      @media (max-width: 768px) {
+        width: 95vw;
+        margin: 0;
+      }
+    
       & .contentsCon {
         // display: flex;
         /* flex-wrap: wrap;
@@ -198,16 +204,27 @@ const Con = styled.div`
         @media (max-width: 768px) {
           height: 650px;
         }
+        @media (max-width: 768px) {
+        height: 650px;
+        width: 95vw;
+      }
+      @media (max-width: 470px) {
+        height: 500px;
+      }
+      @media (max-width: 350px) {
+        height: 400px;
+      }
         & .mySwiper {
           height: 100%;
           width: 70vw;
           margin-top: 2rem;
           position: relative;
           z-index: 19;
-          .swiper-wrapper{
-            width: 70vw;
+
+          @media (min-width: 1800px) {
+            width: 1400px;
+            margin: 0;
           }
-        
           @media (max-width: 1320px) {
             width: 70vw;
           }
@@ -237,11 +254,21 @@ const Con = styled.div`
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           //  width: 250px;
           //overflow: hidden;
           margin: 0;
+          @media (min-width: 1800px) {
+            width: 1400px;
+            margin: 0;
+          }
           @media (max-width: 992px) {
             width: 90%;
+          }
+          @media (max-width: 768px) {
+            width: 40vw;
+            height: auto;
+            object-fit: cover;
           }
           & img {
             cursor: pointer;
@@ -250,9 +277,12 @@ const Con = styled.div`
             margin: auto;
             position: relative;
             z-index: 20;
+            object-fit: cover;
+
             @media (max-width: 768px) {
-              width: 200px;
-              height: auto;
+              width: 40vw;
+              //height: auto;
+              object-fit: cover;
             }
           }
           & .search {
@@ -278,7 +308,11 @@ const Con = styled.div`
             text-align: left;
             position: relative;
             z-index: 23;
-
+            @media (max-width: 768px) {
+              width: 40vw;
+              height: auto;
+              object-fit: cover;
+            }
             &.active {
               position: relative;
               animation: slide-up 0.5s ease-in-out both;

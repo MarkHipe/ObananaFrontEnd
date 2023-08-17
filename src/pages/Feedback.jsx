@@ -33,6 +33,9 @@ const Feedback = () => {
 
 const Con = styled.div`
   width: 100vw;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  max-width: 1800px;
   & .header1 {
     background-color: rgba(182, 174, 174, 0.253);
     width: 100%;

@@ -4,19 +4,29 @@
 html, #root{
   margin: 0;
   padding: 0;
-  display: block;
+  display: flex;
   top:0;
-  left: 0;
+  /* left: 0; */
   padding-top: 0;
   box-sizing: border-box;
   overflow-x: hidden; 
  justify-content: center;
+ align-items: center;
+ /* max-width: 1800px; */
+ margin: auto;
+ align-self: center;
+}
+*{
+  box-sizing: border-box;
+
 }
 body {
  top:0;
-  left: 0;
+  /* left: 0; */
   padding-top: 0; 
-   margin: 0;
+   margin: auto;
+   max-width: 1800px;
+  
   padding: 0;
 font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;

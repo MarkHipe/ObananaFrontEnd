@@ -107,6 +107,10 @@ const Con = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @media (min-width: 1800px) {
+        width: 850px;
+       
+      }
     @media (max-width: 992px) {
       width: 95%;
       margin: 1rem auto;

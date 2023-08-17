@@ -25,6 +25,7 @@ const TextBanner = () => {
 }
 const Con = styled.div`
   display: flex;
+  overflow-x: hidden;
   & .border {
     height:60px;
     width: 99%;

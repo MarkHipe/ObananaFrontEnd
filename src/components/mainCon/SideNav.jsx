@@ -130,11 +130,11 @@ const categories = [
 ];
 
 const SideNav = () => {
-    const [activeTab, setactiveTab] = useState("home")
+  const [activeTab, setactiveTab] = useState("home");
   const [active, setActive] = useState("Home");
   const [activeCategory, setActiveCategory] = useState(false);
   const [activeSubCategory, setActiveSubCategory] = useState("");
-  
+
   const [activeSubLinks, setActiveSubLinks] = useState("");
   return (
     <Con>
@@ -170,112 +170,108 @@ const SideNav = () => {
           <div className="catCon">
             <div
               className={
-                activeTab=== "categories" ? "categories active" : "categories"
+                activeTab === "categories" ? "categories active" : "categories"
               }
             >
-            
-                <div
-                  className={activeCategory === true ? "popUp active" : "popUp"}
-                  onMouseLeave={() => {
-                    setActiveCategory(false);
-                  }}
-                >
-                  <div className="nestPop">
-                    {categories.map((cat, i) => {
-                      return (
-                        <div className="nestWrap">
-                          <div className="nestLinks">
-                            <span
-                              className={
-                                activeSubCategory === cat.catName
-                                  ? "active"
-                                  : ""
-                              }
-                            >
-                              <p>{cat.catName}</p>
-                              {activeSubCategory === cat.catName ? (
-                                <FaAngleDown
-                                  className="icon"
-                                  onClick={() => {
-                                    setActiveSubCategory("");
-                                  }}
-                                />
-                              ) : (
-                                <FaAngleRight
-                                  className={
-                                    activeSubCategory === cat.catName
-                                      ? "icon active"
-                                      : "icon"
-                                  }
-                                  onClick={() => {
-                                    if (activeSubCategory !== cat.catName) {
-                                      setActiveSubCategory(cat.catName);
-                                    } else {
-                                      setActiveSubCategory("");
-                                    }
-                                  }}
-                                />
-                              )}
-                            </span>
-                          </div>
-                          <div
+              <div
+                className={activeCategory === true ? "popUp active" : "popUp"}
+                onMouseLeave={() => {
+                  setActiveCategory(false);
+                }}
+              >
+                <div className="nestPop">
+                  {categories.map((cat, i) => {
+                    return (
+                      <div className="nestWrap">
+                        <div className="nestLinks">
+                          <span
                             className={
-                              activeSubCategory === cat.catName &&
-                              activeTab === "categories"
-                                ? "linksWrap active"
-                                : "linksWrap"
+                              activeSubCategory === cat.catName ? "active" : ""
                             }
                           >
-                            {cat?.subCategory?.map((sub, i) => {
-                              return (
-                                <div className="links">
-                                  <span>
-                                    <h1>{sub.subName} </h1>
-                                    {activeSubLinks === sub.subName ? (
-                                      <FaAngleDown
-                                        onClick={() => {
-                                          setActiveSubLinks("");
-                                        }}
-                                      />
-                                    ) : (
-                                      <FaAngleRight
-                                        className={
-                                          activeSubCategory === sub.subName
-                                            ? "icon active"
-                                            : "icon"
-                                        }
-                                        onClick={() => {
-                                          if (activeSubLinks !== sub.subName) {
-                                            setActiveSubLinks(sub.subName);
-                                          } else {
-                                            setActiveSubLinks("");
-                                          }
-                                        }}
-                                      />
-                                    )}
-                                  </span>
-
-                                  <ul
-                                    className={
-                                      activeSubLinks === sub.subName
-                                        ? "active"
-                                        : ""
-                                    }
-                                  >
-                                    {sub?.subLinks?.map((subL, i) => {
-                                      return <li>{subL.name}</li>;
-                                    })}
-                                  </ul>
-                                </div>
-                              );
-                            })}
-                          </div>
+                            <p>{cat.catName}</p>
+                            {activeSubCategory === cat.catName ? (
+                              <FaAngleDown
+                                className="icon"
+                                onClick={() => {
+                                  setActiveSubCategory("");
+                                }}
+                              />
+                            ) : (
+                              <FaAngleRight
+                                className={
+                                  activeSubCategory === cat.catName
+                                    ? "icon active"
+                                    : "icon"
+                                }
+                                onClick={() => {
+                                  if (activeSubCategory !== cat.catName) {
+                                    setActiveSubCategory(cat.catName);
+                                  } else {
+                                    setActiveSubCategory("");
+                                  }
+                                }}
+                              />
+                            )}
+                          </span>
                         </div>
-                      );
-                    })}
-                  </div>
+                        <div
+                          className={
+                            activeSubCategory === cat.catName &&
+                            activeTab === "categories"
+                              ? "linksWrap active"
+                              : "linksWrap"
+                          }
+                        >
+                          {cat?.subCategory?.map((sub, i) => {
+                            return (
+                              <div className="links">
+                                <span>
+                                  <h1>{sub.subName} </h1>
+                                  {activeSubLinks === sub.subName ? (
+                                    <FaAngleDown
+                                      onClick={() => {
+                                        setActiveSubLinks("");
+                                      }}
+                                    />
+                                  ) : (
+                                    <FaAngleRight
+                                      className={
+                                        activeSubCategory === sub.subName
+                                          ? "icon active"
+                                          : "icon"
+                                      }
+                                      onClick={() => {
+                                        if (activeSubLinks !== sub.subName) {
+                                          setActiveSubLinks(sub.subName);
+                                        } else {
+                                          setActiveSubLinks("");
+                                        }
+                                      }}
+                                    />
+                                  )}
+                                </span>
+
+                                <ul
+                                  className={
+                                    activeSubLinks === sub.subName
+                                      ? "active"
+                                      : ""
+                                  }
+                                >
+                                  {sub?.subLinks?.map((subL, i) => {
+                                    return <li>{subL.name}</li>;
+                                  })}
+                                </ul>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-             
+              </div>
             </div>
           </div>
           <div
@@ -312,6 +308,8 @@ const Con = styled.div`
   width: 350px;
   position: relative;
   z-index: 34;
+  background-color: #464646;
+  padding-top:3rem;
   -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
   animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;

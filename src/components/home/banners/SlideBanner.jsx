@@ -30,14 +30,8 @@ const Slidebanner = () => {
       {" "}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar]}
-         spaceBetween={30}
-        // slidesPerView={3}
-        // loop={true}
+        spaceBetween={30}
         // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log("slide change")}
-        // style={{ height: "auto", width: "100%" }}
         className="swiper"
         //  centeredSlides={true}
         breakpoints={{
@@ -50,7 +44,7 @@ const Slidebanner = () => {
           return (
             <SwiperSlide className="perSlide" style={{ width: "100%" }} key={i}>
               <div className="card">
-              <img src={img.link} alt="" />
+                <img src={img.link} alt="" />
                 <div className="label">
                   <p>{img.btn}</p>
                 </div>
@@ -65,11 +59,12 @@ const Slidebanner = () => {
 };
 
 const Con = styled.div`
-width: 99vw;
-margin: auto ;
-display: flex;
-justify-content: center;
-align-items: center;
+  width: 99vw;
+  max-width: 1800px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & .swiper {
     position: relative;
     width: 95%;
@@ -80,7 +75,7 @@ align-items: center;
     & .perSlide {
       & .card {
         margin: 1rem auto;
-       // height: 250px;
+        // height: 250px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -90,12 +85,12 @@ align-items: center;
         @media (max-width: 768px) {
           flex-direction: column;
         }
-      //  border-right: 1px solid #b4b4b489;
+        //  border-right: 1px solid #b4b4b489;
         & img {
           height: 100%;
           width: 100%;
           object-fit: cover;
-          border-radius:10px ;
+          border-radius: 10px;
         }
         & .label {
           display: flex;

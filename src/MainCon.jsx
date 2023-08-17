@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Nav from "./components/mainCon/Nav";
 import SideNav from "./components/mainCon/SideNav";
 import HeaderNav from "./components/mainCon/HeaderNav";
 import MainNav from "./components/mainCon/MainNav";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Feedback from "./pages/Feedback";
@@ -16,7 +16,7 @@ import HelpCenter from "./pages/HelpCenter";
 import Cart from "./pages/Cart";
 import Compare from "./pages/Compare";
 import ProductPage from "./pages/ProductPage";
-
+import { IoMdClose } from "react-icons/io";
 import {
   AiOutlineClose,
   AiOutlineUnorderedList,
@@ -27,11 +27,29 @@ import { FiSearch } from "react-icons/fi";
 import { BsBag } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollButton from "./pages/ScrollButton";
+import CartFloat from "./components/mainCon/CartFloat";
 
 const MainCon = () => {
   const [sideNav, setSideNav] = useState(false);
   const [inView, setInView] = useState(false);
   const [searchPop, setsearchPop] = useState(false);
+  const location = useLocation();
+  const [fullImage, setfullImage] = useState(false);
+  const [imagePop, setimagePop] = useState("");
+  const [cartFloat, setcartFloat] = useState(true)
+  //const [unScroll, setunScroll] = useState(false)
+  useEffect(() => {
+    const preTitle = location.pathname
+      .split("/")
+      .pop()
+      .replace(/%20/g, " ")
+      .replace(/-/g, " ");
+    const title = preTitle.charAt(0).toUpperCase() + preTitle.slice(1);
+    location.pathname === "/"
+      ? (document.title = "Obanana | Home")
+      : (document.title = "Obanana | " + title);
+  }, [location]);
+
   return (
     <AnimatePresence>
       <Con className={sideNav === true ? "active" : ""}>
@@ -66,16 +84,19 @@ const MainCon = () => {
           <div className="bars">
             <SideNav />
           </div>{" "}
-          <div
+          {/* <div
             className="shadow"
             onClick={() => {
               setSideNav(!sideNav);
             }}
-          ></div>
+          ></div> */}
         </div>
-        <div className="main">
+        <div className={fullImage === true ? "main fullImg" : "main"}>
           <HeaderNav />
-          <MainNav setNav={setSideNav} setInView={setInView} />
+          <MainNav
+            setNav={setSideNav}
+            setInView={setInView} 
+          />
           <div className={inView === false ? "nav inview" : "nav"}>
             <Nav />
           </div>
@@ -85,17 +106,47 @@ const MainCon = () => {
           <div className={inView === false ? "content inview" : "content"}>
             <Routes>
               <Route path="/" element={<Home />} />{" "}
-              <Route path="/testimonials/" element={<Feedback />} />
-              <Route path="/faq/" element={<FAQs />} />
+              <Route path="/testimonials" element={<Feedback />} />
+              <Route path="/faq" element={<FAQs />} />
               <Route path="/my-account/" element={<Account />} />
-              <Route path="/product" element={<ProductPage />} />
-              <Route path="/sell-on-obanana/" element={<SellOnObanana />} />
-              <Route path="/compare/" element={<Compare />} />
-              <Route path="/cart/" element={<Cart />} />
-              <Route path="/contacts/" element={<HelpCenter />} />
+              <Route
+                path="/product/:prodName"
+                element={
+                  <ProductPage imagePop={setimagePop} pop={setfullImage} />
+                }
+              />
+              <Route path="/sell-on-obanana" element={<SellOnObanana />} />
+              <Route path="/compare" element={<Compare />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/contacts" element={<HelpCenter />} />
               <Route path="*" element={<p>Path not resolved</p>} />
             </Routes>
           </div>
+          {fullImage ? (
+            <div className="imageFull">
+              <div
+                className="shadowOverlay"
+                onClick={() => {
+                  setfullImage(false);
+                }}
+              ></div>
+              <div className="header">
+                <IoMdClose
+                  className="icon"
+                  onClick={() => {
+                    setfullImage(false);
+                  }}
+                />
+              </div>
+              <img src={imagePop} alt="" />
+              <style jsx></style>
+            </div>
+          ) : null}
+          {/* {
+            cartFloat ? (
+              <div className="cartFloat"><CartFloat/></div>
+            ):(null)
+          } */}
           <Footer />
         </div>
         <div className={inView === false ? "bottomNav inview" : "bottomNav"}>
@@ -170,8 +221,83 @@ const Con = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   margin: auto;
+  & .imageFull {
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    & .shadowOverlay {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+    }
+    & img {
+      position: relative;
+      z-index: 52;
+      max-height: 90vh;
+      max-width: 100vw;
+      object-fit: cover;
+      margin: auto;
+      animation: appear 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      @keyframes appear {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+    & .header {
+      height: 8vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.32);
+
+      & .icon {
+        color: #fff;
+        display: flex;
+        align-self: flex-end;
+        position: relative;
+        z-index: 53;
+        float: right;
+        margin-right: 2rem;
+        margin-top: 1rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        &:hover {
+          -webkit-animation: rotate-90-cw 0.4s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: rotate-90-cw 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            infinite both;
+        }
+      }
+    }
+    // align-items: center;
+  }
+  & .main {
+    max-width: 1800px;
+    &.fullImg {
+      max-height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+  }
   &.active {
     overflow-y: hidden;
     max-height: 100vh;
@@ -307,7 +433,12 @@ const Con = styled.div`
   }
   & .content {
     width: 100%;
+    max-width: 1800px;
+    overflow-x: hidden;
     &.inview {
+      width: 100%;
+      max-width: 1800px;
+
       position: relative;
       //margin-top: 80px;
     }
@@ -315,14 +446,13 @@ const Con = styled.div`
   .navMain {
     display: block;
     &.inview {
-     
       animation: slide-hide 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       @keyframes slide-hide {
         0% {
-        opacity: 0;
+          opacity: 0;
         }
         100% {
-         opacity: 0;
+          opacity: 0;
         }
       }
     }
@@ -350,6 +480,10 @@ const Con = styled.div`
       -webkit-animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
         both;
       animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      max-width: 1800px;
+      @media (min-width: 1800px) {
+        margin: auto;
+      }
       @-webkit-keyframes slide-in-top {
         0% {
           -webkit-transform: translateY(-1000px);
@@ -385,6 +519,7 @@ const Con = styled.div`
   & .sidebar {
     display: none;
     position: relative;
+
     // width: 30vw;
     & .shadow {
       background-color: #0202028d;
@@ -405,8 +540,10 @@ const Con = styled.div`
         cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       z-index: 32;
-      //
 
+      background-color: #464646;
+
+      /* position: absolute; */
       & .bars {
         position: relative;
         width: 350px;
@@ -419,7 +556,7 @@ const Con = styled.div`
       &.active {
         display: block;
         background-color: #464646;
-        width: 350px;
+        width: 0px;
       }
       @-webkit-keyframes slide-in-left {
         0% {

@@ -200,7 +200,7 @@ const Con = styled.div`
   padding-top: 2rem;
   width: 100%;
   // width: 100%;
-  height: 300px;
+  height: 200px;
   & .swiper-button-prev {
   }
   .swiper-button-next,
