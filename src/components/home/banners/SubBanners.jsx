@@ -14,10 +14,10 @@ const SubBanners = () => {
           <span>Quotes with Us!</span>
         </div>
         <div className="button">
-          <button><p>
-            REQUEST FOR QUOTATION
-            </p> 
-             <BsArrowRight className="icon"/></button>
+          <button>
+            <p>REQUEST FOR QUOTATION</p>
+            <BsArrowRight className="icon" />
+          </button>
         </div>{" "}
       </div>
     </Con>
@@ -84,7 +84,7 @@ const Con = styled.div`
       align-items: center;
 
       & .icon {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         font-size: 1.5rem;
       }
       &:hover {
@@ -152,6 +152,9 @@ const Con = styled.div`
     & .header {
       width: 100%;
       max-width: 100%;
+      & h1 {
+        font-size: 40px;
+      }
       & p {
         width: 100%;
         margin: auto 0rem;
@@ -159,5 +162,33 @@ const Con = styled.div`
       }
     }
   }
+  @media (max-width: 573px) {
+    & .header {
+      width: 100%;
+      max-width: 100%;
+      & h1 {
+        font-size: 50px;
+      }
+      & p {
+        width: 100%;
+        margin: auto 0rem;
+        margin-left: 3rem;
+        font-size: 40px;
+      }
+    }
+    & .button button {
+      width: 80% !important;
+      margin: 0;
+      display: flex;
+      justify-content: flex-start;
+      /* padding:0px; */
+      min-width: 250px;
+      & button {
+        margin: 0;
+      }
+      font-size: 13px;
+    }
+  }
 `;
+
 export default SubBanners;

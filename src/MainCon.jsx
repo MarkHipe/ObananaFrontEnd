@@ -587,10 +587,10 @@ const Con = styled.div`
   & .bottomNav {
     display: none;
     background-color: #fff;
-    padding: 1rem;
+    padding: .5rem;
     position: fixed;
     z-index: 25;
-    height: 60px;
+    height: 65px;
     @media (max-width: 768px) {
       display: none;
       position: fixed;
@@ -632,16 +632,20 @@ const Con = styled.div`
       box-shadow: 2px 0px 4px 1px rgba(0, 0, 0, 0.15);
       & .wrap {
         width: 100%;
+        justify-content: space-between;
+
         & nav {
-          width: 90%;
+          width: 100%;
           display: inline-flex;
-          justify-content: center;
+          justify-content: space-between;
+          align-items: center;
           margin: auto;
           & span {
             margin: auto;
-            justify-content: center;
+            /* justify-content: center; */
             color: var(--obanana-secondary-color);
             cursor: pointer;
+            margin-bottom:10px;
             &:hover {
               color: var(--obanana-dark-color-hover);
             }
@@ -652,7 +656,7 @@ const Con = styled.div`
             }
             & p {
               margin: 5px auto;
-              font-size: 0.8rem;
+              font-size: 0.7rem;
             }
           }
         }

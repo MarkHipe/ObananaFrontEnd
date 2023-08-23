@@ -110,7 +110,9 @@ const TopCategories = () => {
                       onMouseLeave={() => {
                         setprodHover();
                       }}
-                      onClick={()=>{navigate(`/product/${prod.productName}`)}}
+                      onClick={() => {
+                        navigate(`/product/${prod.productName}`);
+                      }}
                     >
                       <FiSearch
                         className={prodHover === i ? "search active" : "search"}
@@ -167,6 +169,13 @@ const Con = styled.div`
     @media (max-width: 1024px) {
       flex-direction: column;
     }
+    @media (max-width: 758px) {
+      flex-direction: column;
+      & h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    }
   }
   & .prodWrap {
     display: flex;
@@ -207,7 +216,8 @@ const Con = styled.div`
         }
         @media (max-width: 768px) {
           width: 100vw !important;
-          padding: 2rem 1rem;
+          margin-top:0rem;
+          padding: 1rem 1rem;
           margin: 1rem 5px;
         }
         & span {
@@ -217,6 +227,10 @@ const Con = styled.div`
           width: 90%;
           // margin: auto 1rem;
           padding: 1.5rem;
+          @media (max-width: 768px) {
+            width: 100%;
+            padding: 0.9rem
+          }
           & .heart {
             margin-left: -1rem;
             width: 1rem;
@@ -339,8 +353,12 @@ const Con = styled.div`
             object-fit: cover;
             @media (max-width: 768px) {
               width: 40vw;
-             // height: auto;
+              // height: auto;
               object-fit: cover;
+            }
+            @media (max-width: 350px) {
+              width: 140px;
+              height: 140px;
             }
           }
           & .search {
@@ -364,6 +382,18 @@ const Con = styled.div`
 
             position: relative;
             z-index: 23;
+            @media (max-width: 902px) {
+              height: 80px;
+              padding: 5px;
+              width: 140px;
+              margin: 0;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              /* display: flex; */
+            }
             @media (max-width: 768px) {
               width: 40vw;
               height: auto;
@@ -389,6 +419,10 @@ const Con = styled.div`
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
+              @media (max-width: 753px) {
+                fon-size: 13px;
+                margin: 0;
+              }
             }
             & h4 {
               color: red;

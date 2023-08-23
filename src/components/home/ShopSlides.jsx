@@ -98,8 +98,6 @@ const ShopSlides = () => {
   const [hover, sethover] = useState();
   return (
     <Con>
-     
-    
       <div className="content">
         <Swiper
           // install Swiper modules
@@ -117,7 +115,7 @@ const ShopSlides = () => {
             // when window width is >= 576px
             1: {
               spaceBetween: 0,
-              slidesPerView: 2,
+              slidesPerView: 1,
             },
             576: {
               spaceBetween: 0,

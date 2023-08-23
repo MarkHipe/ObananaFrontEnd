@@ -77,13 +77,13 @@ const ScrollButton = () =>{
    position: fixed;
    width: 100%;
    max-width: 1800px;
-   left: 85%;
+   left: 75%;
    bottom: 140px;
    height: 20px;
    font-size: 3rem;
    z-index: 40;
    cursor: pointer;
-   color: black;
+   /* color: black; */
    @media (min-width: 768px) {
      left: 90%;
    }
@@ -91,7 +91,7 @@ const ScrollButton = () =>{
      color: white;
      background-color: #333;
      border-radius: 100%;
-     font-size: 55px;
+     font-size: 40px;
    }
  `;
 export default ScrollButton;

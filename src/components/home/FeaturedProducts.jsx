@@ -193,7 +193,7 @@ const Con = styled.div`
         width: 95vw;
         margin: 0;
       }
-    
+
       & .contentsCon {
         // display: flex;
         /* flex-wrap: wrap;
@@ -205,15 +205,15 @@ const Con = styled.div`
           height: 650px;
         }
         @media (max-width: 768px) {
-        height: 650px;
-        width: 95vw;
-      }
-      @media (max-width: 470px) {
-        height: 500px;
-      }
-      @media (max-width: 350px) {
-        height: 400px;
-      }
+          height: 650px;
+          width: 95vw;
+        }
+        @media (max-width: 470px) {
+          height: 500px;
+        }
+        @media (max-width: 350px) {
+          height: 400px;
+        }
         & .mySwiper {
           height: 100%;
           width: 70vw;
@@ -280,8 +280,8 @@ const Con = styled.div`
             object-fit: cover;
 
             @media (max-width: 768px) {
-              width: 40vw;
-              //height: auto;
+              width: 140px;
+              height: auto;
               object-fit: cover;
             }
           }
@@ -312,6 +312,18 @@ const Con = styled.div`
               width: 40vw;
               height: auto;
               object-fit: cover;
+            }
+            @media (max-width: 902px) {
+              height: 80px;
+              padding: 5px;
+              width: 140px;
+              margin: 0;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              /* display: flex; */
             }
             &.active {
               position: relative;

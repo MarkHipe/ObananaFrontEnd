@@ -67,6 +67,12 @@ const Con = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 912px) {
+    & h1 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
   & .header {
     display: flex;
     justify-content: space-between;
@@ -78,6 +84,8 @@ const Con = styled.div`
     & .navLatest {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
+      /* align-items: center; */
       margin: 1rem;
       & h6 {
         margin: auto 0.4rem;
@@ -124,12 +132,13 @@ const Con = styled.div`
         height: auto;
       }
       @media (max-width: 350px) {
-        width: 90%;
+        width: 40%;
         height: auto;
       }
       & img {
         width: 200px;
         height: 200px;
+        object-fit: cover;
         -webkit-animation: opacity-low 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
           both;
         animation: opacity-low 0.3s cubic-bezier(0.95, 0.59, 0.07, 0.94) both
@@ -141,8 +150,8 @@ const Con = styled.div`
           height: 40vw;
         }
         @media (max-width: 350px) {
-          width: 90vw;
-          height: auto;
+          width: 140px;
+          height: 140px;
         }
         @keyframes opacity-low {
           0% {
@@ -179,6 +188,18 @@ const Con = styled.div`
         padding: 1rem;
         background-color: #fff;
         //animation: slide-down 4s ease-in-out;
+        @media (max-width: 902px) {
+          height: 80px;
+          padding: 5px;
+          width:140px;
+          margin:0;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          /* display: flex; */
+        }
         &.active {
           position: relative;
 
@@ -197,6 +218,12 @@ const Con = styled.div`
         }
         & p {
           font-size: 0.8rem;
+          height: 40px;
+          width: 100%;
+          @media (max-width: 753px) {
+            fon-size: 13px;
+            margin:0;
+          }
         }
         & h4 {
           color: red;
