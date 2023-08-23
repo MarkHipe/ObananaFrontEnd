@@ -282,7 +282,7 @@ const Con = styled.div`
           height: 500px;
         }
         @media (max-width: 350px) {
-          height: 400px;
+          height: 500px;
         }
         & .mySwiper {
           height: 100%;
@@ -356,7 +356,7 @@ const Con = styled.div`
               // height: auto;
               object-fit: cover;
             }
-            @media (max-width: 350px) {
+            @media (max-width: 512px) {
               width: 140px;
               height: 140px;
             }
